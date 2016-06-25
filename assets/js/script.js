@@ -18,7 +18,6 @@ $(function(){
 		}
 	});
 
-
 	// Create a collection of services
 	var ServiceList = Backbone.Collection.extend({
 
@@ -40,7 +39,7 @@ $(function(){
 		// Add more here
 	]);
 
-	// This view turns a Service model into HTML
+	// This view turns a Service model into HTML. Will create LI elements.
 	var ServiceView = Backbone.View.extend({
 		tagName: 'li',
 
@@ -84,13 +83,12 @@ $(function(){
 			// Cache these selectors
 			this.total = $('#total span');
 			this.list = $('#services');
-			
+
 			// Listen for the change event on the collection.
 			// This is equivalent to listening on every one of the 
 			// service objects in the collection.
 			this.listenTo(services, 'change', this.render);
 
-			
 			// Create views for every one of the services in the
 			// collection and add them to the page
 
@@ -117,9 +115,7 @@ $(function(){
 			this.total.text('$'+total);
 
 			return this;
-
 		}
-
 	});
 
 	new App();
